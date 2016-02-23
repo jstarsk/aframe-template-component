@@ -17,12 +17,12 @@ Features:
 Supports:
 
 - [Handlebars.js](https://http://handlebarsjs.com/)
+- [Jade](http://jade-lang.com/)
 - [mustache.js](https://mustache.github.io/)
 - [Nunjucks](https://mozilla.github.io/nunjucks/)
 
 Planned:
 
-- [Jade](http://jade-lang.com/)
 - [lodash](https://www.npmjs.com/package/lodash.template)
 
 ### Properties
