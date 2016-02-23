@@ -33,6 +33,8 @@ Planned:
 | insert     | Where to insert the rendered HTML using [insertAdjacentHTML](https://developer.mozilla.org/docs/Web/API/Element/insertAdjacentHTML)   |
 | type       | Type of templating engine to use                                                                                                      |
 
+Local context variables for the template are passed through the element's [dataset](https://developer.mozilla.org/docs/Web/API/HTMLElement/dataset).
+
 ### Usage
 
 #### Browser Installation
