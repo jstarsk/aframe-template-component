@@ -1,5 +1,7 @@
 ## aframe-template-component
 
+> Once the component API is validated, expect this to be pulled into A-Frame as a standard component.
+
 A template component for [A-Frame](https://aframe.io) VR.
 
 Supports:
@@ -7,6 +9,11 @@ Supports:
 - [Handlebars.js](https://http://handlebarsjs.com/)
 - [mustache.js](https://mustache.github.io/)
 - [Nunjucks](https://mozilla.github.io/nunjucks/)
+
+Planned:
+
+- [Jade](http://jade-lang.com/)
+- [lodash](https://www.npmjs.com/package/lodash.template)
 
 ### Properties
 
