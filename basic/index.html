@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A-Frame Template Component</title>
+    <script src="../build.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-mixin id="leaf-block"
+                 geometry="primitive: box; depth: 2.5; height: 2.5; width: 2.5"
+                 material="color: #69C181; side: double"></a-mixin>
+
+        <script id="butterflies" type="text/x-nunjucks-template">
+          {% for x in range(0, 10) %}
+            {% for z in range(0, 10) %}
+              <a-entity template="src: butterfly.template; type: handlebars"
+                        data-position="{{ x * 10 }} 1 {{ z * 10 }}"></a-entity>
+            {% endfor %}
+          {% endfor %}
+        </script>
+
+        <script id="forest" type="text/x-nunjucks-template">
+          {% for x in range(0, 10) %}
+            {% for z in range(0, 10) %}
+              <a-entity template="src: tree.template; type: handlebars"
+                        data-position="{{ x * 10 }} 0 {{ z * 10 }}"
+                        data-trunkcolor="#623B1C"></a-entity>
+            {% endfor %}
+          {% endfor %}
+        </script>
+      </a-assets>
+
+      <a-entity template="src: #forest"></a-entity>
+      <a-entity template="src: #butterflies"></a-entity>
+
+      <a-camera position="25 1.8 25"></a-camera>
+      <a-plane color="#CAAD8C" height="500" width="500" shader="flat"
+               position="0 -10 0" rotation="-90 0 0"></a-plane>
+      <a-sky color="#3EC1D3"></a-sky>
+    </a-scene>
+  </body>
+</html>
