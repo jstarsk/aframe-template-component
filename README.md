@@ -70,10 +70,19 @@ Install and use by directly including the [browser files](dist):
           {% endfor %}
         {% endfor %}
       </script>
+
+      <script id="clouds" type="text/x-jade-template">
+        - for (var x = 0; x < 5; x++) {
+          - for (var z = 0; z < 5; z++) {
+            a-entity(geometry="primitive: box; depth: 8; height: 1; width: 6", material="opacity: 0.2", position="#{x * 20} 15 #{z * 20}")
+          - }
+        - }
+      </script>
     </a-assets>
 
     <a-entity template="src: #forest"></a-entity>
     <a-entity template="src: #butterflies"></a-entity>
+    <a-entity template="src: #clouds"></a-entity>
   </a-scene>
 </body>
 ```
