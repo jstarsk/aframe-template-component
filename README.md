@@ -12,6 +12,8 @@ Features:
 - Loading external templates
 - Lazy-loading template engines
 
+![template](https://cloud.githubusercontent.com/assets/674727/13244577/23d4991e-d9bc-11e5-99dc-589cf771e372.gif)
+
 Supports:
 
 - [Handlebars.js](https://http://handlebarsjs.com/)
