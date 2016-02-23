@@ -4,6 +4,14 @@
 
 A template component for [A-Frame](https://aframe.io) VR.
 
+Features:
+
+- Agnostic template engine support, choose from popular templating engines
+- Rendering templates before, at the beginning, at the end, or after entities
+- Loading templates defined within script tags
+- Loading external templates
+- Lazy-loading template engines
+
 Supports:
 
 - [Handlebars.js](https://http://handlebarsjs.com/)
