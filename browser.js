@@ -7,7 +7,7 @@
 
   // Register all components here.
   var components = {
-    example: require('./index').component
+    template: require('./index').Component
   };
 
   Object.keys(components).forEach(function (name) {
