@@ -76,16 +76,19 @@
 	var log = debug('template-component:info');
 
 	var HANDLEBARS = 'handlebars';
+	var JADE = 'jade';
 	var MUSTACHE = 'mustache';
 	var NUNJUCKS = 'nunjucks';
 
 	var LIB_LOADED = {};
 	LIB_LOADED[HANDLEBARS] = !!window.Handlebars;
+	LIB_LOADED[JADE] = !!window.jade;
 	LIB_LOADED[MUSTACHE] = !!window.Mustache;
 	LIB_LOADED[NUNJUCKS] = !!window.nunjucks;
 
 	var LIB_SRC = {};
 	LIB_SRC[HANDLEBARS] = 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js';
+	LIB_SRC[JADE] = 'https://cdnjs.cloudflare.com/ajax/libs/jade/1.11.0/jade.min.js';
 	LIB_SRC[MUSTACHE] = 'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js';
 	LIB_SRC[NUNJUCKS] = 'https://cdnjs.cloudflare.com/ajax/libs/nunjucks/2.3.0/nunjucks.min.js';
 
@@ -132,7 +135,7 @@
 	  return new Promise(function (resolve) {
 	    injectTemplateLib(type).then(function () {
 	      templateCache[src] = {
-	        template: getCompiler(type)(templateStr),
+	        template: getCompiler(type)(templateStr.trim()),
 	        type: type
 	      };
 	      resolve(templateCache[src]);
@@ -143,6 +146,9 @@
 	function renderTemplate (template, type, context) {
 	  switch (type) {
 	    case HANDLEBARS: {
+	      return template(context);
+	    }
+	    case JADE: {
 	      return template(context);
 	    }
 	    case MUSTACHE: {
@@ -167,6 +173,8 @@
 	  if (!type) {
 	    if (scriptType.indexOf('handlebars') !== -1) {
 	      type = HANDLEBARS;
+	    } else if (scriptType.indexOf('jade') !== -1) {
+	      type = JADE
 	    } else if (scriptType.indexOf('mustache') !== -1) {
 	      type = MUSTACHE;
 	    } else if (scriptType.indexOf('nunjucks') !== -1) {
@@ -207,6 +215,9 @@
 	    case HANDLEBARS: {
 	      return compileHandlebarsTemplate;
 	    }
+	    case JADE: {
+	      return compileJadeTemplate;
+	    }
 	    case MUSTACHE: {
 	      return compileHandlebarsTemplate;
 	    }
@@ -222,6 +233,10 @@
 
 	function compileHandlebarsTemplate (templateStr) {
 	  return Handlebars.compile(templateStr);
+	}
+
+	function compileJadeTemplate (templateStr) {
+	  return jade.compile(templateStr);
 	}
 
 	function compileMustacheTemplate (templateStr) {
