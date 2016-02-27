@@ -113,7 +113,7 @@
 	    var templateCacheItem = templateCache[data.src];
 
 	    if (templateCacheItem) {
-	      this.renderTemplate(templateCacheItem.template, templateCacheItem.type);
+	      this.renderTemplate(templateCacheItem);
 	      return;
 	    }
 
