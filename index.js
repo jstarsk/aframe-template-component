@@ -20,7 +20,7 @@ LIB_SRC[JADE] = 'https://cdnjs.cloudflare.com/ajax/libs/jade/1.11.0/jade.min.js'
 LIB_SRC[MUSTACHE] = 'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js';
 LIB_SRC[NUNJUCKS] = 'https://cdnjs.cloudflare.com/ajax/libs/nunjucks/2.3.0/nunjucks.min.js';
 
-module.exports.Component = {
+AFRAME.registerComponent('template', {
   schema: {
     insert: {
       // insertAdjacentHTML.
@@ -54,7 +54,7 @@ module.exports.Component = {
       templateCacheItem.template, templateCacheItem.type, el.dataset);
     el.insertAdjacentHTML(this.data.insert, renderedTemplate);
   }
-};
+});
 
 /**
  * Helper to compile template, lazy-loading the template engine if needed.

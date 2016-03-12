@@ -41,12 +41,11 @@ Local context variables for the template are passed through the element's [datas
 
 Install and use by directly including the [browser files](dist):
 
-
 ```html
 <head>
   <title>My A-Frame Scene</title>
-  <script src="https://rawgit.com/aframevr/aframe/dev/dist/aframe.min.js"></script>
-  <script src="https://rawgit.com/ngokevin/aframe-template-component/dev/dist/aframe-template-component.min.js"></script>
+  <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
+  <script src="https://rawgit.com/ngokevin/aframe-template-component/master/dist/aframe-template-component.min.js"></script>
 </head>
 
 <body>
@@ -98,7 +97,6 @@ npm install aframe-template-component
 Then register and use.
 
 ```js
-var AFRAME = require('aframe');
-var templateComponent = require('aframe-template-component').Component;
-AFRAME.registerComponent('template', templateComponent);
+require('aframe');
+require('aframe-template-component');
 ```
