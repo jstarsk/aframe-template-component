@@ -42,32 +42,6 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Browser distribution of the A-Frame component.
-	(function () {
-	  if (typeof AFRAME === 'undefined') {
-	    console.error('Component attempted to register before AFRAME was available.');
-	    return;
-	  }
-
-	  // Register all components here.
-	  var components = {
-	    template: __webpack_require__(1).Component
-	  };
-
-	  Object.keys(components).forEach(function (name) {
-	    if (AFRAME.aframeCore) {
-	      AFRAME.aframeCore.registerComponent(name, components[name]);
-	    } else {
-	      AFRAME.registerComponent(name, components[name]);
-	    }
-	  });
-	})();
-
-
-/***/ },
-/* 1 */
 /***/ function(module, exports) {
 
 	var debug = AFRAME.utils.debug;
@@ -92,7 +66,7 @@
 	LIB_SRC[MUSTACHE] = 'https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js';
 	LIB_SRC[NUNJUCKS] = 'https://cdnjs.cloudflare.com/ajax/libs/nunjucks/2.3.0/nunjucks.min.js';
 
-	module.exports.Component = {
+	AFRAME.registerComponent('template', {
 	  schema: {
 	    insert: {
 	      // insertAdjacentHTML.
@@ -126,7 +100,7 @@
 	      templateCacheItem.template, templateCacheItem.type, el.dataset);
 	    el.insertAdjacentHTML(this.data.insert, renderedTemplate);
 	  }
-	};
+	});
 
 	/**
 	 * Helper to compile template, lazy-loading the template engine if needed.
