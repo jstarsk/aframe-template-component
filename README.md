@@ -1,7 +1,5 @@
 ## aframe-template-component
 
-> Once the component API is validated, expect this to be pulled into A-Frame as a standard component.
-
 A template component for [A-Frame](https://aframe.io) VR.
 
 Features:
@@ -44,7 +42,7 @@ Install and use by directly including the [browser files](dist):
 ```html
 <head>
   <title>My A-Frame Scene</title>
-  <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
   <script src="https://rawgit.com/ngokevin/aframe-template-component/master/dist/aframe-template-component.min.js"></script>
 </head>
 
