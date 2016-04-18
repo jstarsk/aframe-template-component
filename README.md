@@ -14,6 +14,7 @@ Features:
 
 Supports:
 
+- Vanilla HTML
 - [Handlebars.js](https://http://handlebarsjs.com/)
 - [Jade](http://jade-lang.com/)
 - [mustache.js](https://mustache.github.io/)

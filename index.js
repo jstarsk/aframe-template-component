@@ -158,7 +158,7 @@ function getCompiler (type) {
     }
     default: {
       // If type not specified, assume raw HTML and no templating needed.
-      return function (str) { return str; } ;
+      return function (str) { return str; };
     }
   }
 }
@@ -182,11 +182,9 @@ function compileNunjucksTemplate (templateStr) {
 
 function injectTemplateLib (type) {
   return new Promise(function (resolve) {
-    if (type === '') {
-      //no lib injection required
-      return resolve();
-    }
-    
+    // No lib injection required.
+    if (!type) { return resolve(); }
+
     var scriptEl = LIB_LOADED[type];
 
     // Engine loaded.
