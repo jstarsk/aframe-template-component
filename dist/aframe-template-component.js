@@ -53,6 +53,7 @@
 	var JADE = 'jade';
 	var MUSTACHE = 'mustache';
 	var NUNJUCKS = 'nunjucks';
+	var HTML = 'html';
 
 	var LIB_LOADED = {};
 	LIB_LOADED[HANDLEBARS] = !!window.Handlebars;
@@ -157,6 +158,8 @@
 	      type = MUSTACHE;
 	    } else if (scriptType.indexOf('nunjucks') !== -1) {
 	      type = NUNJUCKS
+	    } else if(scriptType.indexOf('html') !== -1) {
+	      type = HTML;
 	    } else {
 	      error('Template type could not be inferred from the script tag. Please add a type.');
 	      return;
