@@ -29,13 +29,22 @@
             {% endfor %}
           {% endfor %}
         </script>
+
+        <script id="clouds" type="text/x-jade-template">
+          - for (var x = 0; x < 5; x++) {
+            - for (var z = 0; z < 5; z++) {
+              a-entity(geometry="primitive: box; depth: 8; height: 1; width: 6", material="opacity: 0.2", position="#{x * 20} 15 #{z * 20}")
+            - }
+          - }
+        </script>
       </a-assets>
 
       <a-entity template="src: #forest"></a-entity>
       <a-entity template="src: #butterflies"></a-entity>
+      <a-entity template="src: #clouds"></a-entity>
 
       <a-camera position="25 1.8 25"></a-camera>
-      <a-plane color="#CAAD8C" height="500" width="500" shader="flat"
+      <a-plane color="#CAAD8C" height="1000" width="1000" shader="flat"
                position="0 -10 0" rotation="-90 0 0"></a-plane>
       <a-sky color="#3EC1D3"></a-sky>
     </a-scene>

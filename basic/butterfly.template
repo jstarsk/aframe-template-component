@@ -1,5 +1,5 @@
-<a-mixin id="wing" geometry="primitive: box; depth: .005; height: 1;
-                             translate: -0.25 0 0; width: 0.5"
+<a-mixin id="wing" geometry="primitive: box; depth: .005; height: 1; width: 0.5"
+                   pivot="0.25 0 0"
                    material="color: red" rotation="0 0 0"
                    scale="0.5 0.625 0.5"></a-mixin>
 <a-mixin id="flap" attribute="rotation" direction="alternate" fill="forwards"
