@@ -36,6 +36,14 @@ Local context variables for the template are passed through the element's [datas
 
 ### Usage
 
+### Types
+
+- `text/html`
+- `text/handlebars`
+- `text/jade`
+- `text/mustache`
+- `text/nunjucks`
+
 #### Browser Installation
 
 Install and use by directly including the [browser files](dist):
