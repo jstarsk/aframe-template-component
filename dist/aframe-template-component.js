@@ -150,6 +150,9 @@
 
 	  // Try to infer template type from <script type> if type not specified.
 	  if (!type) {
+	    if (!scriptType) {
+	      throw new Error('Must provide `type` attribute for <script> templates (e.g., handlebars, jade, nunjucks, html)');
+	    }
 	    if (scriptType.indexOf('handlebars') !== -1) {
 	      type = HANDLEBARS;
 	    } else if (scriptType.indexOf('jade') !== -1) {
@@ -232,7 +235,7 @@
 	function injectTemplateLib (type) {
 	  return new Promise(function (resolve) {
 	    // No lib injection required.
-	    if (!type) { return resolve(); }
+	    if (!type || type === 'html') { return resolve(); }
 
 	    var scriptEl = LIB_LOADED[type];
 
