@@ -189,7 +189,7 @@ function compileNunjucksTemplate (templateStr) {
 function injectTemplateLib (type) {
   return new Promise(function (resolve) {
     // No lib injection required.
-    if (!type) { return resolve(); }
+    if (!type || type === 'html') { return resolve(); }
 
     var scriptEl = LIB_LOADED[type];
 
