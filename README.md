@@ -20,10 +20,6 @@ Supports:
 - [mustache.js](https://mustache.github.io/)
 - [Nunjucks](https://mozilla.github.io/nunjucks/)
 
-Planned:
-
-- [lodash](https://www.npmjs.com/package/lodash.template)
-
 ### Properties
 
 | Property   | Description                                                                                                                           |
@@ -78,9 +74,9 @@ Install and use by directly including the [browser files](dist):
       <script id="forest" type="text/x-nunjucks-template">
         {% for x in range(0, 10) %}
           {% for z in range(0, 10) %}
-            <a-entity template="src: tree.template; type: handlebars"
+            <a-entity template="src: tree.template; type: handlebars; data: tree-data"
                       data-position="{{ x * 10 }} 0 {{ z * 10 }}"
-                      data-trunkcolor="#623B1C"></a-entity>
+                      tree-data="trunkColor: #623B1C; leaves: 500"></a-entity>
           {% endfor %}
         {% endfor %}
       </script>
