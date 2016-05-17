@@ -1,4 +1,5 @@
 var debug = AFRAME.utils.debug;
+var extend = AFRAME.utils.extend;
 var templateCache = {};  // Template cache.
 var error = debug('template-component:error');
 var log = debug('template-component:info');
@@ -34,6 +35,9 @@ AFRAME.registerComponent('template', {
       // Selector or URL.
       default: ''
     },
+    data: {
+      default: ''
+    }
   },
 
   update: function () {
@@ -51,9 +55,19 @@ AFRAME.registerComponent('template', {
 
   renderTemplate: function (templateCacheItem) {
     var el = this.el;
-    var renderedTemplate = renderTemplate(
-      templateCacheItem.template, templateCacheItem.type, el.dataset);
-    el.insertAdjacentHTML(this.data.insert, renderedTemplate);
+    var data = this.data;
+    var templateData = {};
+
+    Object.keys(el.dataset).forEach(function convertToData (key) {
+      templateData[key] = el.dataset[key];
+    });
+    if (data.data) {
+      templateData = extend(templateData, el.getComputedAttribute(data.data));
+    }
+
+    var renderedTemplate = renderTemplate(templateCacheItem.template, templateCacheItem.type,
+                                          templateData);
+    el.insertAdjacentHTML(data.insert, renderedTemplate);
   }
 });
 
