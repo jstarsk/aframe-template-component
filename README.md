@@ -22,6 +22,8 @@ Supports:
 
 ### Properties
 
+#### template
+
 | Property   | Description                                                                                                                           |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | src        | Selector to a `<script template>` element or a URL to an external template file.                                                      |
@@ -29,6 +31,14 @@ Supports:
 | type       | To explicitly define the type of templating engine to use (handlebars, jade, mustache, nunjucks, html). |
 
 Local context variables for the template are passed through the element's [dataset](https://developer.mozilla.org/docs/Web/API/HTMLElement/dataset).
+
+#### template-set
+
+| Property   | Description                                                                                                                           |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| on         | Event name to listen to before initializing template component.                                                                       |
+| data       | What to set `template.data` to once event is fired.                                                                                   |
+| src        | What to set `template.src` to once event is fired.                                                                                    |
 
 ### Vanilla HTML
 
