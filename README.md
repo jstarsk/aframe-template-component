@@ -27,10 +27,13 @@ Supports:
 | Property   | Description                                                                                                                           |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | src        | Selector to a `<script template>` element or a URL to an external template file.                                                      |
+| data       | Pass a component name to use the component's data as the dataset for the template context variables.                                  |
 | insert     | Where to insert the rendered HTML using [insertAdjacentHTML](https://developer.mozilla.org/docs/Web/API/Element/insertAdjacentHTML)   |
-| type       | To explicitly define the type of templating engine to use (handlebars, jade, mustache, nunjucks, html). |
+| type       | To explicitly define the type of templating engine to use (handlebars, jade, mustache, nunjucks, html).                               |
 
-Local context variables for the template are passed through the element's [dataset](https://developer.mozilla.org/docs/Web/API/HTMLElement/dataset).
+Local context variables for the template are passed through the element's
+[dataset](https://developer.mozilla.org/docs/Web/API/HTMLElement/dataset) or
+through the `data` property. If both are defined, they will be combined.
 
 #### template-set
 
