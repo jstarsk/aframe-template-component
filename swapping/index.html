@@ -3,42 +3,12 @@
   <head>
     <title>A-Frame Template Component - Swapping</title>
     <script src="../build.js"></script>
+    <script src="components/template-looper.js"></script>
   </head>
   <body>
-    <script>
-      /**
-       * Swap template with mask animation.
-       */
-      AFRAME.registerComponent('template-looper', {
-        schema: {
-          type: 'array'
-        },
-
-        init: function () {
-          this.maskEl = this.el.sceneEl.querySelector('#mask');
-          this.index = 0;
-        },
-
-        tick: function (time) {
-          // Swap every second.
-          var self = this;
-          if (time - this.time < 2000) { return; }
-          this.time = time;
-
-          // Set template.
-          this.maskEl.emit('fade');
-          setTimeout(function () {
-            self.el.setAttribute('template', 'src', self.data[self.index++]);
-            self.maskEl.emit('fade');
-            if (self.index === self.data.length) { self.index = 0; }
-          }, 200);
-        }
-      });
-    </script>
-
     <a-scene>
-      <a-entity template="src: spheres.html"
-                template-looper="boxes.html, spheres.html"></a-entity>
+      <a-entity template="src: scenes/spheres.html"
+                template-looper="scenes/boxes.html, scenes/spheres.html"></a-entity>
 
       <a-camera position="0 1.8 8"></a-camera>
       <a-sky color="#D7C1E0"></a-sky>
