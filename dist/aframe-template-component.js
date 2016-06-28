@@ -86,10 +86,18 @@
 	    }
 	  },
 
-	  update: function () {
+	  update: function (oldData) {
 	    var data = this.data;
+	    var el = this.el;
 	    var fetcher = data.src[0] === '#' ? fetchTemplateFromScriptTag : fetchTemplateFromXHR;
 	    var templateCacheItem = templateCache[data.src];
+
+	    // Replace children if swapping templates.
+	    if (oldData && oldData.src !== data.src) {
+	      while (el.firstChild) {
+	        el.removeChild(el.firstChild);
+	      }
+	    }
 
 	    if (templateCacheItem) {
 	      this.renderTemplate(templateCacheItem);
