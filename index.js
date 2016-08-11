@@ -1,3 +1,5 @@
+var templateString = require('es6-template-strings');
+
 var debug = AFRAME.utils.debug;
 var extend = AFRAME.utils.extend;
 var templateCache = {};  // Template cache.
@@ -109,8 +111,10 @@ function renderTemplate (template, type, context) {
       return template.render(context);
     }
     default: {
-      // If type not specified, assume raw HTML and no templating needed.
-      return template;
+      // If type not specified, assume HTML. Add some ES6 template string sugar.
+      console.log(template);
+      console.log(context);
+      return templateString(template, context);
     }
   }
 }
@@ -137,7 +141,7 @@ function fetchTemplateFromScriptTag (src, type) {
       type = MUSTACHE;
     } else if (scriptType.indexOf('nunjucks') !== -1) {
       type = NUNJUCKS
-    } else if(scriptType.indexOf('html') !== -1) {
+    } else if (scriptType.indexOf('html') !== -1) {
       type = HTML;
     } else {
       error('Template type could not be inferred from the script tag. Please add a type.');
