@@ -1,5 +1,7 @@
 ## aframe-template-component
 
+> MOVED TO [ngokevin/kframe](https://github.com/ngokevin/kframe)
+
 A template component for [A-Frame](https://aframe.io) VR.
 
 Features:
